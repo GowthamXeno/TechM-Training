@@ -5,8 +5,8 @@ import java.util.Map;
 public class LinkedHashMapSample {
     public static void main(String[] args) {
         LinkedHashMap<Integer, String> lhm = new LinkedHashMap<>();
-        lhm.put(1, "one");
         lhm.put(2, "two");
+        lhm.put(1, "one");
         lhm.put(3, "three");
         System.out.println("Initial HashMap hm1 are : "+ lhm);
         lhm.put(2, "For");

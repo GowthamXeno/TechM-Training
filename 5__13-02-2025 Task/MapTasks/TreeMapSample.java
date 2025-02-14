@@ -5,8 +5,8 @@ import java.util.TreeMap;
 public class TreeMapSample {
     public static void main(String[] args) {
         TreeMap<Integer, String> tm = new TreeMap<>();
-        tm.put(1, "one");
         tm.put(2, "two");
+        tm.put(1, "one");
         tm.put(3, "three");
         System.out.println("Initial TreeMap tm1 are : "+ tm);
         tm.put(2, "For");

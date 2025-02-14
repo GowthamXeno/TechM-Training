@@ -1,4 +1,3 @@
-package bbb;
 
 class User {
     private String name;
@@ -37,8 +36,10 @@ class User {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
         User user = (User) obj;
         return age == user.age && name.equals(user.name);
     }
@@ -72,10 +73,10 @@ class SecondUser {
 
 class Main {
     public static void main(String[] args) {
-        User user1 = new User("Alice", 25);
-        User user2 = new User("Alice", 25);
-        SecondUser secondUser1 = new SecondUser("Alice", 25);
-        SecondUser secondUser2 = new SecondUser("Alice", 25);
+        User user1 = new User("John", 21);
+        User user2 = new User("John", 21);
+        SecondUser secondUser1 = new SecondUser("John", 21);
+        SecondUser secondUser2 = new SecondUser("John", 21);
 
         System.out.println("User1 toString: " + user1);
         System.out.println("User2 toString: " + user2);
