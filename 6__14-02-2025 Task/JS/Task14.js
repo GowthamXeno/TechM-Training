@@ -8,3 +8,5 @@ while(number1<=number2){
         break;
     console.log();
 }
+
+
