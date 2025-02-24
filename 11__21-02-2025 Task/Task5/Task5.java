@@ -8,7 +8,7 @@ public class Task5 {
         System.out.print("Enter the limit: ");
         int limit = scan.nextInt();
 
-        int numThreads = 4; // Number of threads
+        int numThreads = 4; 
         PrimeSumThread[] threads = new PrimeSumThread[numThreads];
         int range = limit / numThreads;
         int start = 2;

@@ -8,7 +8,7 @@ public class Task17 {
         desserts.add("Cake");
         desserts.add("Ice Cream");
 
-        desserts.addFirst("Brownie"); // Inserts at the front
+        desserts.addFirst("Brownie");
         System.out.println("Updated desserts list: " + desserts);
     }
 }

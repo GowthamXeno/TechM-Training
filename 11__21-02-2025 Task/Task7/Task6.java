@@ -12,7 +12,7 @@ public class Task6 {
         languages.add("JavaScript");
         languages.add("Ruby");
 
-        languages.remove(2); // Removes "C++"
+        languages.remove(2); 
         System.out.println("Updated languages list: " + languages);
     }
 }

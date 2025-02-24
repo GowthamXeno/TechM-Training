@@ -9,7 +9,7 @@ public class Task18 {
         drinks.add("Coffee");
         drinks.add("Tea");
 
-        drinks.addLast("Juice"); // Inserts at the end
+        drinks.addLast("Juice"); 
         System.out.println("Updated drinks list: " + drinks);
     }
 }
