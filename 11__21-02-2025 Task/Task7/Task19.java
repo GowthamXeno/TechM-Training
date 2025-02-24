@@ -11,7 +11,7 @@ public class Task19 {
         movies.add("Titanic");
         movies.add("Avatar");
 
-        movies.addAll(1, Arrays.asList("Interstellar", "The Dark Knight")); // Inserts at index 1
+        movies.addAll(1, Arrays.asList("Interstellar", "The Dark Knight"));
         System.out.println("Updated movies list: " + movies);
     }
 }
