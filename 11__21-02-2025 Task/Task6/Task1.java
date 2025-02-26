@@ -14,7 +14,7 @@ public class Task1 {
 
         String[] str1 = { "apple", "banana", "cherry" };
         String[] str2 = { "apple", "banana", "cherry" };
-        String[] str3 = { "apple", "cherry", "banana" };
+        String[] str3 = { "apple", "cherry", "banana" };www
 
         System.out.println("str1 and str2 same? " + compareArrays(str1, str2));
         System.out.println("str1 and str3 same? " + compareArrays(str1, str3));
