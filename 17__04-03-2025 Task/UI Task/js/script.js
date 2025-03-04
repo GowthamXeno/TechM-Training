@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Add workout to Local Storage
   addToRoutineButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const workoutCard = button.closest(".fp-workout-card");
@@ -101,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
       alert(`${workoutName} added to your routine!`);
     });
   });
-  // Exercise List with Default Reps/Seconds
   const exercises = [
     { name: "Squats", reps: 12, sec: 0 },
     { name: "Push-ups", reps: 15, sec: 0 },
@@ -135,17 +133,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const workoutName = workoutCard.querySelector("h3").textContent;
       const workoutImage = workoutCard.querySelector("img").src;
 
-      // Populate modal with workout details
       document.getElementById("modal-title").textContent = workoutName;
       document.getElementById("modal-image").src = workoutImage;
 
-      // Show modal
       const detailsModal = new bootstrap.Modal(document.getElementById("workoutModal"));
       detailsModal.show();
     });
   });
   function openModal() {
-    selectedExercises.innerHTML = ""; // Reset only when reopening
+    selectedExercises.innerHTML = "";
     workoutNameInput.value = "";
 
     customWorkoutModal.classList.add("show");
@@ -188,8 +184,8 @@ function openCustomExerciseModal() {
   const modalElement = document.getElementById("customExerciseModal");
   const modal = new bootstrap.Modal(modalElement);
 
-  modalElement.removeAttribute("aria-hidden"); // Remove aria-hidden when opening
-  modalElement.removeAttribute("inert"); // Allow interaction
+  modalElement.removeAttribute("aria-hidden"); 
+  modalElement.removeAttribute("inert");
   modal.show();
 }
 
@@ -198,8 +194,8 @@ function closeCustomExerciseModal() {
   const modal = bootstrap.Modal.getInstance(modalElement);
 
   modal.hide();
-  modalElement.setAttribute("aria-hidden", "true"); // Hide from screen readers
-  modalElement.setAttribute("inert", ""); // Prevent focus and interaction
+  modalElement.setAttribute("aria-hidden", "true");
+  modalElement.setAttribute("inert", "");
 }
 
 
@@ -303,10 +299,8 @@ function closeCustomExerciseModal() {
       return;
     }
   
-    // Get current date and time once for the routine
     const createdAt = new Date().toLocaleString();
   
-    // Collect selected exercises
     const selectedExerciseData = [...selectedExercises.children].map((div) => ({
       name: div.dataset.name,
       reps: div.querySelector("input[type='number']")?.value || 0,
@@ -314,12 +308,11 @@ function closeCustomExerciseModal() {
       completed: false,
     }));
   
-    // Create routine object with createdAt at the routine level
     const newRoutine = {
       name: workoutName,
       exercises: selectedExerciseData,
       completed: false,
-      createdAt: createdAt, // Timestamp for the whole routine
+      createdAt: createdAt, 
     };
   
     storedRoutines.push(newRoutine);

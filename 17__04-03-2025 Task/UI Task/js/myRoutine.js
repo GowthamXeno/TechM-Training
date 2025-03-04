@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Function to display a message if no routines are found
 function showNoRoutineMessage() {
   const routineContainer = document.getElementById("routineContainer");
   routineContainer.innerHTML = `
@@ -25,18 +24,16 @@ function redirectToCreateRoutine() {
   window.location.href = "CreateRoutine.html";
 }
 
-// Function to generate a unique ID
+
 function generateId() {
   return 'id-' + Math.random().toString(36).substr(2, 9);
 }
 
-// Function to get formatted date and time
 function getFormattedDateTime() {
   let now = new Date();
-  return now.toLocaleString(); // Format: MM/DD/YYYY, HH:MM:SS AM/PM
+  return now.toLocaleString(); 
 }
 
-// Function to log routine actions
 function logRoutineAction(id, name, action, exercises, createdAt, completedAt = null) {
   let logs = JSON.parse(localStorage.getItem("routineLogs")) || [];
   logs.push({
@@ -52,7 +49,6 @@ function logRoutineAction(id, name, action, exercises, createdAt, completedAt = 
   localStorage.setItem("routineLogs", JSON.stringify(logs));
 }
 
-// Function to display stored routines
 function displayRoutines(routines) {
   const routineContainer = document.getElementById("routineContainer");
   routineContainer.innerHTML = "";
@@ -77,7 +73,6 @@ function displayRoutines(routines) {
   });
 }
 
-// Function to open exercise modal
 function openExerciseModal(index) {
   const storedRoutines = JSON.parse(localStorage.getItem("fitnessRoutines")) || [];
   const routine = storedRoutines[index];
@@ -94,22 +89,19 @@ function openExerciseModal(index) {
   modal.show();
 }
 
-// Function to mark a routine as completed
 function markCompleted(index) {
   let storedRoutines = JSON.parse(localStorage.getItem("fitnessRoutines")) || [];
   let routine = storedRoutines[index];
 
   routine.completed = true;
-  routine.completedAt = getFormattedDateTime(); // Store completion time
+  routine.completedAt = getFormattedDateTime();
 
-  // Log completion
   logRoutineAction(routine.id, routine.name, "Completed", routine.exercises, routine.createdAt, routine.completedAt);
 
   localStorage.setItem("fitnessRoutines", JSON.stringify(storedRoutines));
   displayRoutines(storedRoutines);
 }
 
-// Function to delete a routine (but log it before deletion)
 function deleteRoutine(index) {
   let storedRoutines = JSON.parse(localStorage.getItem("fitnessRoutines")) || [];
   let routine = storedRoutines[index];
@@ -124,14 +116,12 @@ function deleteRoutine(index) {
   }
 }
 
-// Function to repeat a routine
 function repeatRoutine(index) {
   let storedRoutines = JSON.parse(localStorage.getItem("fitnessRoutines")) || [];
 
   if (index >= 0 && index < storedRoutines.length) {
     let originalRoutine = storedRoutines[index];
 
-    // Create a new routine with the same exercises but reset `completed` status
     let newRoutine = {
       id: generateId(),
       name: originalRoutine.name,
@@ -139,8 +129,8 @@ function repeatRoutine(index) {
         ...exercise
       })),
       completed: false,
-      createdAt: getFormattedDateTime(), // Set new creation timestamp
-      completedAt: null // Reset completion time
+      createdAt: getFormattedDateTime(),
+      completedAt: null 
     };
 
     storedRoutines.push(newRoutine);
